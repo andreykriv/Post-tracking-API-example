@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						  http://www.springframework.org/schema/context
+                          http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                          http://www.springframework.org/schema/tx 
+                          http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<context:component-scan base-package="ru.aplix.posttrackingapi.services.entity"/>
+	<context:annotation-config/>
+	
+	<!-- EntityManager settings -->
+	<bean id="jpaEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceProvider">
+	        <bean class="org.hibernate.ejb.HibernatePersistence" />
+	    </property>
+	    <property name="dataSource" ref="dataSource"/>
+	    <property name="packagesToScan">
+	    	<array>
+	    		<value>ru.aplix.posttrackingapi.services.entity</value>
+	    		<value>ru.aplix.posttrackingapi.russianpost.entity</value>
+	    		<value>ru.aplix.posttrackingapi.russianpost.operationhistory.entity</value>
+	    		<value>ru.aplix.posttrackingapi.sdek.entity</value>
+	    		<value>ru.aplix.posttrackingapi.dpdclient.entity</value>
+	    		<value>ru.aplix.posttrackingapi.pickpoint.entity</value>
+	    		<value>ru.aplix.posttrackingapi.qiwipost.entity</value>
+	    		<value>ru.aplix.posttrackingapi.dhl.entity</value>
+	    		<value>ru.aplix.posttrackingapi.logibox.entity</value>
+	    		<value>ru.aplix.posttrackingapi.spsrclient.entity</value>
+	    		<value>ru.aplix.posttrackingapi.imlclient.entity</value>
+	    		<value>ru.aplix.posttrackingapi.dellines.entity</value>
+	    		<value>ru.aplix.posttrackingapi.hermes.entity</value>
+	    		<value>ru.aplix.posttrackingapi.pecom.entity</value>
+	    		<value>ru.aplix.posttrackingapi.ponyexpress.entity</value>
+	    	</array>
+	    </property>
+	    <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+	</bean>
+	
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="showSql" value="false"/>
+		<property name="generateDdl" value="false"/>
+		<property name="databasePlatform" value="org.hibernate.dialect.SQLServerDialect"/>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="jpaEntityManagerFactory"/>
+    </bean>
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="${postapi.db.driver}" />
+	    <property name="url" value="jdbc:sqlserver://${postapi.db.host};databaseName=${postapi.db.name};" />
+	    <property name="username" value="${postapi.db.user}" />
+	    <property name="password" value="${postapi.db.password}" />
+	</bean>
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+</beans> 

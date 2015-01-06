@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						  http://www.springframework.org/schema/context
+                          http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+    
+    <context:component-scan base-package="ru.aplix.posttrackingapi.russianpost.dao"/>
+    <context:component-scan base-package="ru.aplix.posttrackingapi.russianpost.service"/>
+    <context:component-scan base-package="ru.aplix.posttrackingapi.russianpost.operationhistory.dao"/>
+    <context:component-scan base-package="ru.aplix.posttrackingapi.russianpost.operationhistory.service"/>
+
+    <context:annotation-config/>
+    
+    <!-- Runtime update services -->  
+	<bean id="askRussianpostTracksService" class="ru.aplix.posttrackingapi.russianpost.asktracks.AskRussianpostTracksService"/>
+	
+	<bean id="askTracksServiceTask" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+		<property name="runnable" ref="askRussianpostTracksService"/>
+		<property name="period" value="${postapi.asktracks.period}"/>
+		<property name="delay" value="5000"/>
+	</bean>
+	
+	<bean id="askTracksTimer" class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="scheduledExecutorTasks">
+			<list>
+				<ref bean="askTracksServiceTask"/>
+			</list>
+		</property>
+		<property name="continueScheduledExecutionAfterException" value="true"/>
+	</bean>
+	
+	<bean id="askRussianpostTicketsAnswerTracksService" class="ru.aplix.posttrackingapi.russianpost.asktracks.AskRussianpostTicketsAnswerTracks"/>
+	
+	<bean id="askTicketsTask" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+		<property name="runnable" ref="askRussianpostTicketsAnswerTracksService"/>
+		<property name="period" value="${postapi.askticket.answer.period}"/>
+		<property name="delay" value="5000"/>
+	</bean>
+	
+	<bean id="askTicketsTimer" class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="scheduledExecutorTasks">
+			<list>
+				<ref bean="askTicketsTask"/>
+			</list>
+		</property>
+		<property name="continueScheduledExecutionAfterException" value="true"/>
+	</bean>
+	
+	<!-- Runtime update controllers -->
+	<!-- <bean id="russianpostHistoryController" class="ru.aplix.posttrackingapi.russianpost.asktracks.HistoryController"/>
+	<bean id="russianpostTicketsController" class="ru.aplix.posttrackingapi.russianpost.asktracks.TicketsController"/>-->
+	<bean id="russianpostHistoryViewController" class="ru.aplix.posttrackingapi.russianpost.operationhistory.controller.RussianpostHistoryViewController"/>
+		
+	<!-- WebOperation util -->
+	<bean id="russianpostWebProcessorUtil" class="ru.aplix.posttrackingapi.russianpost.broadcast.RussianpostWebProcessorUtil"/>
+		
+	<bean id="userService" class="ru.aplix.posttrackingapi.russianpost.service.UserService" scope="prototype">
+		<property name="login" value="${postapi.user.login}"/>
+		<property name="password" value="${postapi.user.password}"/>
+	</bean>
+	
+	<!-- Utils -->
+	<bean id="russianpostTrackUtil" class="ru.aplix.posttrackingapi.russianpost.util.RussianpostTrackUtil" scope="prototype"/>	
+	
+	<bean id="russianpostOpersComparator" class="ru.aplix.posttrackingapi.russianpost.util.RussianpostOperationsComparator"/>
+	
+</beans>

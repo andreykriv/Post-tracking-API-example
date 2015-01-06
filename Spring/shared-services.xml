@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						  http://www.springframework.org/schema/context
+                          http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	
+	<!-- RussianPost runtime broadcast services -->
+	<bean id="russianpostRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.russianpost.broadcast.RussianpostRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="russianpostRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.russianpost.broadcast.RussianpostRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="russianpostRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.russianpost.broadcast.RussianpostRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<!-- SDEK runtime broadcast services -->
+	<bean id="sdekRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.sdek.broadcast.SdekRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="sdekRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.sdek.broadcast.SdekRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="sdekRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.sdek.broadcast.SdekRuntimeSMPPBroadcast" scope="prototype"/>		
+	
+	<!-- DPD runtime broadcast services -->
+	<bean id="dpdRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.dpdclient.broadcast.DPDRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="dpdRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.dpdclient.broadcast.DPDRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="dpdRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.dpdclient.broadcast.DPDRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<!-- PickPoint runtime broadcast services -->
+	<bean id="ppRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.pickpoint.broadcast.PPRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="ppRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.pickpoint.broadcast.PPRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="ppRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.pickpoint.broadcast.PPRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<!-- QiwiPost runtime broadcast services -->
+	<bean id="qpRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.qiwipost.broadcast.QPRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="qpRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.qiwipost.broadcast.QPRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="qpRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.qiwipost.broadcast.QPRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<!-- DHL runtime broadcast services -->
+	<bean id="dhlRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.dhl.broadcast.DHLRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="dhlRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.dhl.broadcast.DHLRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="dhlRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.dhl.broadcast.DHLRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="logiboxRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.logibox.broadcast.LBRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="logiboxRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.logibox.broadcast.LBRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="logiboxRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.logibox.broadcast.LBRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="spsrRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.spsrclient.broadcast.SPSRRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="spsrRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.spsrclient.broadcast.SPSRRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="spsrRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.spsrclient.broadcast.SPSRRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="imlRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.imlclient.broadcast.IMLRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="imlRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.imlclient.broadcast.IMLRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="imlRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.imlclient.broadcast.IMLRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="hermRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.hermes.broadcast.HermRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="hermRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.hermes.broadcast.HermRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="hermRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.hermes.broadcast.HermRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="dellinRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.dellines.broadcast.DLRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="dellinRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.dellines.broadcast.DLRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="dellinRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.dellines.broadcast.DLRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="pecRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.pecom.broadcast.PecRuntimeApiBroadcast" scope="prototype"/>
+	<bean id="pecRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.pecom.broadcast.PecRuntimeMailBroadcast" scope="prototype"/>
+	<bean id="pecRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.pecom.broadcast.PecRuntimeSMPPBroadcast" scope="prototype"/>
+	
+	<bean id="peRuntimeApiBroadcast" class="ru.aplix.posttrackingapi.ponyexpress.broadcast.PERuntimeApiBroadcast" scope="prototype"/>
+	<bean id="peRuntimeMailBroadcast" class="ru.aplix.posttrackingapi.ponyexpress.broadcast.PERuntimeMailBroadcast" scope="prototype"/>
+	<bean id="peRuntimeSMPPBroadcast" class="ru.aplix.posttrackingapi.ponyexpress.broadcast.PERuntimeSMPPBroadcast" scope="prototype"/>
+
+	<!-- Shared runtime broadcast service -->	
+	<bean id="runtimeApiBroadcastService" class="ru.aplix.posttrackingapi.services.broadcast.RuntimeApiBroadcastService">
+		<property name="apiBroadcasts">
+			<map>
+				<entry key="RUSSIANPOST" value-ref="russianpostRuntimeApiBroadcast"/>
+				<entry key="SDEK" value-ref="sdekRuntimeApiBroadcast"/>
+				<entry key="DPD" value-ref="dpdRuntimeApiBroadcast"/>
+				<entry key="PICKPOINT" value-ref="ppRuntimeApiBroadcast"/>
+				<entry key="QIWIPOST" value-ref="qpRuntimeApiBroadcast"/>
+				<entry key="DHL" value-ref="dhlRuntimeApiBroadcast"/>
+				<entry key="LOGIBOX" value-ref="logiboxRuntimeApiBroadcast"/>
+				<entry key="SPSR" value-ref="spsrRuntimeApiBroadcast"/>
+				<entry key="IML" value-ref="imlRuntimeApiBroadcast"/>
+				<entry key="HERMES" value-ref="hermRuntimeApiBroadcast"/>
+				<entry key="DELLIN" value-ref="dellinRuntimeApiBroadcast"/>
+				<entry key="PEC" value-ref="pecRuntimeApiBroadcast"/>
+				<entry key="PONY_EXPRESS" value-ref="peRuntimeApiBroadcast"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="runtimeMailBroadcastService" class="ru.aplix.posttrackingapi.services.broadcast.RuntimeMailBroadcastService">
+		<property name="session" value="${postapi.smtp.session}"/>
+    	<property name="sender" value="${postapi.smtp.sender}"/>
+    	<property name="subject" value="${postapi.smtp.subject}" />
+    	<property name="messagePattern">
+    		<value>classpath:${postapi.smtp.mailpattern}</value>
+    	</property>
+		<property name="mailBroadcasts">
+			<map>
+				<entry key="RUSSIANPOST" value-ref="russianpostRuntimeMailBroadcast"/>
+				<entry key="SDEK" value-ref="sdekRuntimeMailBroadcast"/>
+				<entry key="DPD" value-ref="dpdRuntimeMailBroadcast"/>
+				<entry key="PICKPOINT" value-ref="ppRuntimeMailBroadcast"/>
+				<entry key="QIWIPOST" value-ref="qpRuntimeMailBroadcast"/>
+				<entry key="DHL" value-ref="dhlRuntimeMailBroadcast"/>
+				<entry key="LOGIBOX" value-ref="logiboxRuntimeMailBroadcast"/>
+				<entry key="SPSR" value-ref="spsrRuntimeMailBroadcast"/>
+				<entry key="IML" value-ref="imlRuntimeMailBroadcast"/>
+				<entry key="HERMES" value-ref="hermRuntimeMailBroadcast"/>
+				<entry key="DELLIN" value-ref="dellinRuntimeMailBroadcast"/>
+				<entry key="PEC" value-ref="pecRuntimeMailBroadcast"/>
+				<entry key="PONY_EXPRESS" value-ref="peRuntimeMailBroadcast"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="runtimeSmppBroadcastService" class="ru.aplix.posttrackingapi.services.broadcast.RuntimeSmppBroadcastService">
+		<property name="smsServerHost" value="${postapi.smpp.server}" />
+    	<property name="smsLogin" value="${postapi.smpp.login}"/>
+    	<property name="smsPassword" value="${postapi.smpp.password}"/>
+    	<property name="smsPattern">
+    		<value>classpath:${postapi.smpp.smspattern}</value>
+    	</property>
+    	<property name="minBalance" value="${postapi.smpp.minbalance}"/>
+		<property name="smppBroadcasts">
+			<map>
+				<entry key="RUSSIANPOST" value-ref="russianpostRuntimeSMPPBroadcast"/>
+				<entry key="SDEK" value-ref="sdekRuntimeSMPPBroadcast"/>
+				<entry key="DPD" value-ref="dpdRuntimeSMPPBroadcast"/>
+				<entry key="PICKPOINT" value-ref="ppRuntimeSMPPBroadcast"/>
+				<entry key="QIWIPOST" value-ref="qpRuntimeSMPPBroadcast"/>
+				<entry key="DHL" value-ref="dhlRuntimeSMPPBroadcast"/>
+				<entry key="LOGIBOX" value-ref="logiboxRuntimeSMPPBroadcast"/>
+				<entry key="SPSR" value-ref="spsrRuntimeSMPPBroadcast"/>
+				<entry key="IML" value-ref="imlRuntimeSMPPBroadcast"/>
+				<entry key="HERMES" value-ref="hermRuntimeSMPPBroadcast"/>
+				<entry key="DELLIN" value-ref="dellinRuntimeSMPPBroadcast"/>
+				<entry key="PEC" value-ref="pecRuntimeSMPPBroadcast"/>
+				<entry key="PONY_EXPRESS" value-ref="peRuntimeSMPPBroadcast"/>
+			</map>
+		</property>
+	</bean>
+
+	<!-- Runtime tasks -->
+	<bean id="runtimeApiBroadcastServiceTask" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+		<property name="runnable" ref="runtimeApiBroadcastService"/>
+		<property name="period" value="${postapi.broadcast.period}"/>
+		<property name="delay" value="5000"/>
+	</bean>
+	
+	<bean id="runtimeMailBroadcastServiceTask" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+		<property name="runnable" ref="runtimeMailBroadcastService"/>
+		<property name="period" value="${postapi.broadcast.period}"/>
+		<property name="delay" value="5000"/>
+	</bean> 
+	
+	<bean id="runtimeSMPPBroadcastServiceTask" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+		<property name="runnable" ref="runtimeSmppBroadcastService"/>
+		<property name="period" value="${postapi.broadcast.period}"/>
+		<property name="delay" value="5000"/>
+	</bean>
+	
+	<!-- Runtime timers -->
+	<bean id="runtimeApiBroadcastTimer" class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="scheduledExecutorTasks">
+			<list>
+				<ref bean="runtimeApiBroadcastServiceTask"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="runtimeMailBroadcastTimer" class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="scheduledExecutorTasks">
+			<list>
+				<ref bean="runtimeMailBroadcastServiceTask"/>
+			</list>			
+		</property>
+	</bean>
+	
+	<bean id="runtimeSMPPBroadcastTimer" class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="scheduledExecutorTasks">
+			<list>
+				<ref bean="runtimeSMPPBroadcastServiceTask"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- OperationHistory controllers -->
+	<bean id="russianpostHistoryProcessor" class="ru.aplix.posttrackingapi.russianpost.processor.RussianpostHistoryProcessor"/>
+	<bean id="sdekHistoryProcessor" class=" ru.aplix.posttrackingapi.sdek.processor.SdekHistoryProcessor">
+		<property name="authType" value="${postapi.sdek.auth.type}"/>
+	</bean>
+	<bean id="dpdHistoryProcessor" class="ru.aplix.posttrackingapi.dpdclient.processor.DPDHistoryProcessor"/>
+	<bean id="ppHistoryProcessor" class="ru.aplix.posttrackingapi.pickpoint.processor.PPHistoryProcessor"/>
+	<bean id="qpHistoryProcessor" class="ru.aplix.posttrackingapi.qiwipost.processor.QPHistoryProcessor"/>
+	<bean id="dhlHistoryProcessor" class="ru.aplix.posttrackingapi.dhl.processor.DHLHistoryProcessor"/>
+	<bean id="logiboxHistoryProcessor" class="ru.aplix.posttrackingapi.logibox.processor.LBHistoryProcessor"/>
+	<bean id="spsrHistoryProcessor" class="ru.aplix.posttrackingapi.spsrclient.processor.SPSRHistoryProcessor"/>
+	<bean id="imlHistoryProcessor" class="ru.aplix.posttrackingapi.imlclient.processor.IMLHistoryProcessor"/>
+	<bean id="hermesHistoryProcessor" class="ru.aplix.posttrackingapi.hermes.processor.HermHistoryProcessor"/>
+	<bean id="dellinHistoryProcessor" class="ru.aplix.posttrackingapi.dellines.processor.DLHistoryProcessor"/>
+	<bean id="pecHistoryProcessor" class="ru.aplix.posttrackingapi.pecom.processor.PecHistoryProcessor"/>
+	<bean id="peHistoryProcessor" class="ru.aplix.posttrackingapi.ponyexpress.processor.PEHistoryProcessor"/>
+		
+	<bean id="webserverOperationHistoryProcessor" class="ru.aplix.posttrackingapi.webserver.processor.OperationHistoryProcessor">
+		<property name="historyProcessors">
+			<map>
+				<entry key="RUSSIANPOST" value-ref="russianpostHistoryProcessor"/>
+				<entry key="SDEK" value-ref="sdekHistoryProcessor"/>
+				<entry key="DPD" value-ref="dpdHistoryProcessor"/>
+				<entry key="PICKPOINT" value-ref="ppHistoryProcessor"/>
+				<entry key="QIWIPOST" value-ref="qpHistoryProcessor"/>
+				<entry key="DHL" value-ref="dhlHistoryProcessor"/>
+				<entry key="LOGIBOX" value-ref="logiboxHistoryProcessor"/>
+				<entry key="SPSR" value-ref="spsrHistoryProcessor"/>
+				<entry key="IML" value-ref="imlHistoryProcessor"/>
+				<entry key="HERMES" value-ref="hermesHistoryProcessor"/>
+				<entry key="DELLIN" value-ref="dellinHistoryProcessor"/>
+				<entry key="PEC" value-ref="pecHistoryProcessor"/>
+				<entry key="PONY_EXPRESS" value-ref="peHistoryProcessor"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- Web API broadcast processor -->
+	<bean id="webserverBroadcastApiProcessor" class="ru.aplix.posttrackingapi.webserver.processor.BroadcastAPIProcessor">
+		<property name="runtimeBroadcastServices">
+			<map>
+				<entry key="RUSSIANPOST" value-ref="russianpostRuntimeApiBroadcast"/>
+				<entry key="SDEK" value-ref="sdekRuntimeApiBroadcast"/>
+				<entry key="DPD" value-ref="dpdRuntimeApiBroadcast"/>
+				<entry key="PICKPOINT" value-ref="ppRuntimeApiBroadcast"/>
+				<entry key="QIWIPOST" value-ref="qpRuntimeApiBroadcast"/>
+				<entry key="DHL" value-ref="dhlRuntimeApiBroadcast"/>
+				<entry key="LOGIBOX" value-ref="logiboxRuntimeApiBroadcast"/>
+				<entry key="SPSR" value-ref="spsrRuntimeApiBroadcast"/>
+				<entry key="IML" value-ref="imlRuntimeApiBroadcast"/>
+				<entry key="HERMES" value-ref="hermRuntimeApiBroadcast"/>
+				<entry key="DELLIN" value-ref="dellinRuntimeApiBroadcast"/>
+				<entry key="PEC" value-ref="pecRuntimeApiBroadcast"/>
+				<entry key="PONY_EXPRESS" value-ref="peRuntimeApiBroadcast"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- Post API service processor -->
+	<bean id="webserverPostApiProcessor" class="ru.aplix.posttrackingapi.webserver.processor.PostApiProcessor">
+		<property name="webProcessorsList">
+			<map>
+				<entry key="RUSSIANPOST" value-ref="russianpostWebProcessorUtil"/>
+				<entry key="SDEK" value-ref="sdekWebProcessorUtil"/>
+				<entry key="DPD" value-ref="dpdWebProcessorUtil"/>
+				<entry key="PICKPOINT" value-ref="ppWebProcessorUtil"/>
+				<entry key="QIWIPOST" value-ref="qpWebProcessorUtil"/>
+				<entry key="DHL" value-ref="dhlWebProcessorUtil"/>
+				<entry key="LOGIBOX" value-ref="logiboxWebProcessorUtil"/>
+				<entry key="SPSR" value-ref="spsrWebProcessorUtil"/>
+				<entry key="IML" value-ref="imlWebProcessorUtil"/>
+				<entry key="HERMES" value-ref="hermWebProcessorUtil"/>
+				<entry key="DELLIN" value-ref="dellinWebProcessorUtil"/>
+				<entry key="PEC" value-ref="pecWebProcessorUtil"/>
+				<entry key="PONY_EXPRESS" value-ref="peWebProcessorUtil"/>
+			</map>
+		</property>
+	</bean>
+
+</beans>
